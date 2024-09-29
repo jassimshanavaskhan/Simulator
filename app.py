@@ -326,5 +326,11 @@ def clear_telemetry():
     except Exception as e:
         return jsonify({"error": f"Failed to clear telemetry outputs: {str(e)}"}), 500
 
+# ---------------- LOCAL ------------------
+# if __name__ == '__main__':
+#     app.run(debug=True)
+
+# ---------------- RENDER ------------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
